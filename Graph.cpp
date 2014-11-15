@@ -11,7 +11,7 @@ Graph::Graph(){
 	std::list<Node> n;
 	nodes = n;
     
-    std::list<Edge> s_e;
+    std::vector<Edge> s_e;
     sorted_edges=s_e;
 }
 
@@ -173,8 +173,8 @@ std::list<Node> Graph::getNodes(){
 }
 
 // gibt alle Kanten des Graphen aus
-std::list<Edge> Graph::getEdges(){
-    std::list<Edge> edges;
+std::vector<Edge> Graph::getEdges(){
+    std::vector<Edge> edges;
     
     // fuer alle Knoten
     for(std::list<Node>::iterator i = nodes.begin(); i != nodes.end(); i++){
@@ -191,12 +191,12 @@ std::list<Edge> Graph::getEdges(){
 }
 
 // Sortiert die Kanten
-/*void Graph::sortEdges(){
-    std::list<Edge> edges = getEdges();
-    std::sort(edges.begin(),edges.end(),comp);
+void Graph::sortEdges(){
+    std::vector<Edge> edges = getEdges();
+    std::sort(edges.begin(),edges.end(),CompEdge());
     sorted_edges = edges;
     
-}*/
+}
 
 
 /*HELPER METHODS (PRIVATE METHODS)*/
