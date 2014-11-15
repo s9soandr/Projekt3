@@ -34,4 +34,4 @@ CompEdge.o: CompEdge.cpp
 	g++ -c CompEdge.cpp
 
 clean:
-	rm -rf *.o  Uebung2
+	rm -rf *.o  Uebung3
