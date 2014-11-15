@@ -12,7 +12,7 @@ class CompEdge{
     
 public:
     // if Edge Weight e1 > e2 then return true, else false
-    bool operator()(const Edge& e1 , const Edge e2){
-        return (e1.getOverlap()>e2.getOverlap());
+    bool operator()(const Edge& e1 , const Edge& e2){
+        return (e1.getOverlap()> e2.getOverlap());
     }
 };

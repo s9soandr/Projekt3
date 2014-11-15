@@ -193,7 +193,7 @@ std::list<Edge> Graph::getEdges(){
 // Sortiert die Kanten
 /*void Graph::sortEdges(){
     std::list<Edge> edges = getEdges();
-    std::sort(edges.begin(),edges.end(),comparator);
+    std::sort(edges.begin(),edges.end(),comp);
     sorted_edges = edges;
     
 }*/

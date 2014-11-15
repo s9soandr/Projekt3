@@ -9,6 +9,8 @@ class Node;
 class Edge;
 class Sequence;
 
+#include "CompEdge.cpp"
+
 
 class Graph{
 private:
@@ -17,7 +19,7 @@ private:
     Node& insertNode(Node &n);
     std::list<Edge> sorted_edges; // wird bei aufruf von sortEdges() gesetzt
 
-    //CompEdge comperator;
+    CompEdge comp;
 public:
 
 	Graph();
