@@ -1,7 +1,7 @@
-all: Uebung2
+all: Uebung3
 
 Uebung2: main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o
-	g++ main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o -o Uebung2
+	g++ main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o -o Uebung3
 
 main.o: main.cpp
 	g++ -c main.cpp
