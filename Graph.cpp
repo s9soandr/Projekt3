@@ -11,6 +11,9 @@
 Graph::Graph(){
 	std::list<Node> n;
 	nodes = n;
+    
+    std::list<Edge> s_e;
+    sorted_edges = s_e;
 }
 
 Graph::Graph(const std::list<Node> n): nodes(n){}
@@ -170,6 +173,7 @@ std::list<Node> Graph::getNodes(){
 	return nodes;
 }
 
+// gibt alle Kanten des Graphen aus
 std::list<Edge> Graph::getEdges(){
     std::list<Edge> edges;
     
@@ -185,6 +189,14 @@ std::list<Edge> Graph::getEdges(){
     }
     
     return edges;
+}
+
+// Sortiert die Kanten
+void Graph::sortEdges(){
+    std::list<Edge> edges = getEdges();
+    std::sort(edges.begin(),edges.end(),comparator);
+    sorted_edges = edges;
+    
 }
 
 
@@ -203,3 +215,5 @@ Node& Graph::insertNode(Node& n){
 
     return n;
 }
+
+

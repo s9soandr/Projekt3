@@ -15,6 +15,7 @@ private:
     unsigned int overlap;
     std::string overlap_seq;
     
+    
 public:
 
     Edge(Node& source, Node& target, unsigned int o, std::string seq);

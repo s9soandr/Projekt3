@@ -8,13 +8,16 @@
 class Node;
 class Edge;
 class Sequence;
-
+#include "CompEdge.cpp"
 
 class Graph{
 private:
     std::list<Node> nodes;
     //This methods adds a node to the graph it simultaneously already builds the edges
     Node& insertNode(Node &n);
+    CompEdge comparator; // Comperator fuer die Kantengewichte
+    std::list<Edge> sorted_edges; // wird bei aufruf von sortEdges() gesetzt
+    
     
 
 public:
@@ -47,8 +50,11 @@ public:
     
     std::list<Node> getNodes();
     
-    // returns alle Edges
+    // returns all Edges
     std::list<Edge> getEdges();
+    
+    // sortiert Kanten nach Kantengewicht von gross nach klein
+    void sortEdges();
 
 
 };
