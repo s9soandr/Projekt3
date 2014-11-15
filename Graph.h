@@ -15,8 +15,9 @@ private:
     std::list<Node> nodes;
     //This methods adds a node to the graph it simultaneously already builds the edges
     Node& insertNode(Node &n);
-    
+    std::list<Edge> sorted_edges; // wird bei aufruf von sortEdges() gesetzt
 
+    //CompEdge comperator;
 public:
 
 	Graph();
@@ -49,6 +50,9 @@ public:
     
     // gibt alle Edges zurueck
     std::list<Edge> getEdges();
+
+    // sortiert Kanten nach Kantengewicht von gross nach klein
+    void sortEdges();
 
 
 };
