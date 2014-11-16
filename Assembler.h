@@ -19,7 +19,16 @@ class Assembler{
     
 public:
     
+    // Constructor
+    Assembler();
+    
+    // Destructor
+    ~Assembler();
+    
+    // reads Overlap Graph, returns if Graph is correct
     bool readGraph(const std::string& filename);
+    
+    // join Nodes until you have the assembled Sequence
     Sequence assemble();
 };
 
