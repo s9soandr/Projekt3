@@ -1,7 +1,7 @@
 all: Uebung3
 
-Uebung3: main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o
-	g++ main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o -o Uebung3
+Uebung3: main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o Assembler.o
+	g++ main.o Graph.o Edge.o Node.o Sequence.o DNA.o NucleicAcid.o RNA.o Protein.o CompEdge.o Assembler.o -o Uebung3
 
 main.o: main.cpp
 	g++ -c main.cpp
@@ -32,6 +32,9 @@ Protein.o: Protein.cpp
 
 CompEdge.o: CompEdge.cpp
 	g++ -c CompEdge.cpp
+
+Assembler.o: Assembler.cpp
+	g++ -c Assembler.cpp
 
 clean:
 	rm -rf *.o  Uebung3
