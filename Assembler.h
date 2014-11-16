@@ -11,16 +11,27 @@
 
 #include <stdio.h>
 #include <string>
+#include <vector>
 
 class Sequence;
 
 
 class Assembler{
     
+private:
+    std::vector<Sequence> F; // Fragmentmenge F
+    
 public:
     
     // Constructor
     Assembler();
+    
+    //read in the Fragments in string format
+    void readIn(const std::string& filename);
+    
+    //returns the given Fragments as Sequences
+    std::vector<Sequence> getFragments();
+    
     
     // Destructor
     ~Assembler();
@@ -30,6 +41,8 @@ public:
     
     // join Nodes until you have the assembled Sequence
     Sequence assemble();
+    
+    
 };
 
 
