@@ -115,7 +115,7 @@ int main()
     Graph fragGraph(nodes2);
 	
 	ifstream fragments;
-	fragments.open("Data/fragments.fta", std::ifstream::in);
+	fragments.open("fragments.fta", std::ifstream::in);
 	
 	if(!fragments){
 		throw std::invalid_argument("fragments.fta wurde nicht geöffnet");
