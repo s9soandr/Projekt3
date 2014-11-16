@@ -50,6 +50,11 @@ public:
     bool operator!=(const Node & node);
 
     Sequence& getSequence(Sequence& s) const;
+    
+    
+    // returns sequence as string
+    std::string getStringSequence() const;
+
 };
 
 

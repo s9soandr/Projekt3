@@ -54,6 +54,9 @@ public:
 
     // sortiert Kanten nach Kantengewicht von gross nach klein
     void sortEdges();
+    
+    // joins source/target
+    bool joinNodes(Edge& e);
 
 
 };

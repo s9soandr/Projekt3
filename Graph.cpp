@@ -198,6 +198,51 @@ void Graph::sortEdges(){
     
 }
 
+// joins source/target
+bool Graph::joinNodes(Edge& e){
+    
+    // not joined
+    bool joined = false;
+    
+    
+    //Node source & target of edge
+    Node source= e.getSource();
+    Node target= e.getTarget();
+    
+    // Sequences of Nodes as strings
+    std::string string_seq_source = source.getStringSequence();
+    std::string string_seq_target = target.getStringSequence();
+    
+    // amount of letters to be deleted of target node , if not there would be the overlap sequence double
+    unsigned int overlap =e.getOverlap();
+    
+    // delete the overlap sequence of target
+    string_seq_target.erase(0,overlap);
+    
+    // join string sequencens of source and target
+    std::string joined_string_sequence = string_seq_source + string_seq_target;
+    
+    // new joined Sequence
+    Sequence joinedSeq(joined_string_sequence);
+    
+    // create new Node
+    Node joinedNode(joinedSeq);
+    
+    // delete old source and target node
+    removeNode(source);
+    removeNode(target);
+    
+    // insert new Node and refresh Edges
+    insertNode(joinedNode);
+    
+    // Nodes are joined
+    joined = true;
+    
+    
+    return joined;
+}
+
+
 
 /*HELPER METHODS (PRIVATE METHODS)*/
 
