@@ -12,26 +12,22 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <list>
 
 class Sequence;
-
-
+class Node;
+class Graph;
 class Assembler{
     
 private:
     std::vector<Sequence> F; // Fragmentmenge F
-    
+    std::vector<Sequence> O;
+    Graph& graph; // Graph
+
 public:
-    
+
     // Constructor
-    Assembler();
-    
-    //read in the Fragments in string format
-    void readIn(const std::string& filename);
-    
-    //returns the given Fragments as Sequences
-    std::vector<Sequence> getFragments();
-    
+    Assembler(Graph& mygraph);
     
     // Destructor
     ~Assembler();
@@ -42,7 +38,34 @@ public:
     // join Nodes until you have the assembled Sequence
     Sequence assemble();
     
+    // Greedy - Algorithm
+    std::vector<Sequence> Greedy(std::vector<Sequence>& F);
     
+    // Meine Methoden -------------------------------------
+    
+    // returns |Overlap(A,B)|
+    unsigned int getWeight(Sequence& seq_A, Sequence& seq_B);
+    
+    // berechnet same
+    unsigned int same(Sequence& seq_A, Sequence& seq_B);
+    
+    // berechnet die Summe same
+    unsigned int w_fi(Sequence& fi, std::vector<Sequence>& f);
+    
+    // berechnet opp
+    unsigned int opp(Sequence& seq_A, Sequence& seq_B);
+    
+    // berechnet die Summe opp
+    unsigned int w_cfi(Sequence& cfi, std::vector<Sequence>& f);
+    
+    
+    // revesiert komplementiert
+    Sequence& reverse_com(Sequence& seq,Sequence& rev_comp_seq);
+    
+   
+   
+
+
 };
 
 

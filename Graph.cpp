@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include "Node.h"
 #include "Edge.h"
+#include <algorithm>
 #include "Graph.h"
 
 /*PUBLIC METHODS*/
@@ -33,6 +34,11 @@ bool Graph::hasNode(const Sequence& seq) const{
 
     return false;
 
+}
+
+Graph::Graph(const Graph& graph){
+    nodes=graph.nodes;
+    std::vector<Edge> sorted_edges=graph.sorted_edges;
 }
 
 //Returns the node with the given sequence
@@ -193,9 +199,31 @@ std::vector<Edge> Graph::getEdges(){
 // Sortiert die Kanten
 void Graph::sortEdges(){
     std::vector<Edge> edges = getEdges();
-    std::sort(edges.begin(),edges.end(),CompEdge());
+    sort(edges.begin(),edges.end(),CompEdge());
     sorted_edges = edges;
     
+}
+
+
+/*HELPER METHODS (PRIVATE METHODS)*/
+
+//This methods adds a node to the graph it simultaneously already builds the edges
+Node& Graph::insertNode(Node& n){
+
+    for(std::list<Node>::iterator i = nodes.begin(); i != nodes.end(); i++){
+		
+        n.buildEdgeTo((*i));
+        (*i).buildEdgeTo(n);
+    }
+
+    nodes.push_back(n);
+
+    return n;
+}
+
+// return sorted Edges
+std::vector<Edge> Graph::getSortedEdges(){
+    return sorted_edges;
 }
 
 // joins source/target
@@ -240,22 +268,4 @@ bool Graph::joinNodes(Edge& e){
     
     
     return joined;
-}
-
-
-
-/*HELPER METHODS (PRIVATE METHODS)*/
-
-//This methods adds a node to the graph it simultaneously already builds the edges
-Node& Graph::insertNode(Node& n){
-
-    for(std::list<Node>::iterator i = nodes.begin(); i != nodes.end(); i++){
-		
-        n.buildEdgeTo((*i));
-        (*i).buildEdgeTo(n);
-    }
-
-    nodes.push_back(n);
-
-    return n;
 }

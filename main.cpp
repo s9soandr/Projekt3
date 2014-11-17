@@ -8,6 +8,7 @@
 #include "Sequence.h"
 #include "DNA.h"
 #include "RNA.h"
+#include "Assembler.h"
 
 using namespace std;
 
@@ -117,7 +118,7 @@ int main()
 	ifstream fragments;
 	fragments.open("fragments.fta", std::ifstream::in);
 	
-	if(!fragments){
+	/*if(!fragments){
 		throw std::invalid_argument("fragments.fta wurde nicht geöffnet");
 	}
 	
@@ -125,7 +126,11 @@ int main()
 	
 	std::cout << fragGraph;
 	
-	fragments.close();
+	fragments.close();*/
+    
+    // Assembler
+    Graph testGraph(std::list<Node>);
+    //Assembler(testGraph);
 
     return 0;
 }

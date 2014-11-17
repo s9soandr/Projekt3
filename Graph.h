@@ -24,6 +24,8 @@ public:
 	Graph();
 	
 	Graph(const std::list<Node> n);
+    
+    Graph(const Graph& graph);
 
     //Returns true if a node with the given sequence exists
     bool hasNode(const Sequence& seq) const;
@@ -55,8 +57,12 @@ public:
     // sortiert Kanten nach Kantengewicht von gross nach klein
     void sortEdges();
     
+    // return sorted Edges
+    std::vector<Edge> getSortedEdges();
+    
     // joins source/target
     bool joinNodes(Edge& e);
+
 
 
 };

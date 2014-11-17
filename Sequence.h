@@ -26,6 +26,11 @@ public:
     std::string getSequence() const;
     void setSequence(std::string seq);
 
-};
+    // reversiert Sequence
+    void reverseSeq();
+    
+    // komplement
+    void complementSeq();
 
+};
 #endif

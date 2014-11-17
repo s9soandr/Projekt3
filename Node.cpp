@@ -184,7 +184,6 @@ void Node::addOutgoing(Edge & e){
     outedges = newEdges;
 
 }
-
 // returns sequence as string
 std::string Node::getStringSequence() const{
     return sequence.getSequence();

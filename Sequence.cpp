@@ -3,7 +3,7 @@
 #include "Sequence.h"
 #include <string>
 #include <vector>
-
+#include <algorithm>
 
 Sequence::Sequence(): sequence_(" "){}
 
@@ -201,6 +201,34 @@ void Sequence::setSequence(std::string s){
     this->sequence_ = s;
 }
 
+// reversiert einen String
+void Sequence::reverseSeq(){
+    std::string rev(sequence_);
+    std::reverse(rev.begin(), rev.end());
+     sequence_=rev;
+}
+
+void Sequence::complementSeq(){
+    std::string komp_seq;
+    for ( std::string::iterator it=sequence_.begin(); it!=sequence_.end(); ++it)
+        switch (*it)
+            {
+            case 'A':
+                komp_seq=komp_seq + 'T';
+                break;
+            case 'T':
+                komp_seq=komp_seq + 'A';
+                 break;
+            case 'C':
+                komp_seq=komp_seq + 'G';
+                break;
+            case 'G':
+                komp_seq=komp_seq + 'C';
+                break;
+                default: break;
+            }
+    sequence_=komp_seq;
+}
 
 /*Declaration of the two friend functions*/
 std::istream& operator>>(std::istream& st, Sequence& seq){
